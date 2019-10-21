@@ -10,6 +10,7 @@ class Gossip
 		@gossip_author = gossip_author
 		@gossip_content = gossip_content
 		
+		
 	end
 	
 	
@@ -25,7 +26,17 @@ end
   CSV.read("./db/gossip.csv").each do |csv_line|
     all_gossips << Gossip.new(csv_line[0], csv_line[1])
   end
+	
   return all_gossips
+end
+
+def self.find(id)
+  all_gossips = []
+  CSV.read("./db/gossip.csv").each do |csv_line|
+    all_gossips << Gossip.new(csv_line[0], csv_line[1])
+  end
+	
+  return [all_gossips[id.to_i]]
 end
 	
 end
