@@ -11,25 +11,25 @@ class ApplicationController < Sinatra::Base
   erb :index, locals: {gossips: Gossip.all}
 end
 	
+		get '/gossips/edit' do
+		erb :edit
+			
+#			Gossip.new(params["gossip_author"], params["gossip_content"]).save
+##			
+	end
+
+
+ 
 	
 	get '/gossips/:id' do 
-		
-  erb :index, locals: {gossips: Gossip.find(params["id"])}
-
-  end 
+	erb :show, locals: {gossips: Gossip.find(params["id"]), id: params["id"] }
+end 
 	
+
 	
  post '/gossips/new/' do
 
 	 Gossip.new(params["gossip_author"], params["gossip_content"]).save 
 	 redirect '/'
 end
-	
-	
-#		@gossip_content = all_gossips.select do |gossip_content|
-#	gossip_content.id == params[:id]
-#		end.first
-#		erb :http://localhost:4567/gossips/id/
-#	end
-
   end

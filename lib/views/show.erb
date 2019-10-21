@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+    <h1>PAGE POTINS</h1>
+		<% gossips.each do |gossip| %>
+        
+		<h1>Voici la page du potin n*<%= id %> </h1>
+		<p>Son auteur: <%= gossip.gossip_author %><br/>
+		Le contenu du potin: <%= gossip.gossip_content %> </p>
+		<p><a href="/gossips/edit"> éditer le potin </a></p>
+      <% end %>
+		<a href="http://localhost:4567/">Le lien pour revenir à la page des potins</a>
+  </body>
+</html>
